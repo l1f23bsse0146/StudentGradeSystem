@@ -21,7 +21,16 @@ public class Main {
         else
             grade = "Fail";
 
+        // --- NEW CODE ADDED HERE ---
+        double percentage = (marks / 100.0) * 100;
+
         System.out.println("Student: " + name);
         System.out.println("Grade: " + grade);
+
+        if(marks >= 50)
+            System.out.println("Status: Pass");
+        else
+            System.out.println("Status: Fail");
+        // ---------------------------
     }
 }
