@@ -8,7 +8,20 @@ public class Main {
         String name = input.nextLine();
 
         System.out.print("Enter Marks: ");
-        int marks = input.nextInt();
+
+        // --- MODIFIED WITH TRY-CATCH EXCEPTION HANDLING ---
+        int marks = 0;
+        try {
+            marks = input.nextInt();
+
+            if(marks < 0 || marks > 100)
+                throw new Exception("Invalid Marks");
+
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
+            return; // Exits the program early if marks are invalid
+        }
+        // --------------------------------------------------
 
         String grade;
 
@@ -21,7 +34,6 @@ public class Main {
         else
             grade = "Fail";
 
-        // --- NEW CODE ADDED HERE ---
         double percentage = (marks / 100.0) * 100;
 
         System.out.println("Student: " + name);
@@ -31,6 +43,5 @@ public class Main {
             System.out.println("Status: Pass");
         else
             System.out.println("Status: Fail");
-        // ---------------------------
     }
 }
